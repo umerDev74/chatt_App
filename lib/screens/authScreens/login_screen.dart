@@ -1,5 +1,6 @@
 import 'package:chatt_app/screens/authScreens/register_screen.dart';
 import 'package:chatt_app/screens/homeScreen/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -14,6 +15,29 @@ class _LoginScreenState extends State<LoginScreen> {
   final email=TextEditingController();
   final password=TextEditingController();
   final formkey=GlobalKey<FormState>();
+
+  FirebaseAuth auth= FirebaseAuth.instance;
+  bool isloading=false;
+
+  login() async{
+    setState(() {
+      isloading=true;
+    });
+    try{
+     await auth.signInWithEmailAndPassword(email: email.text,
+          password: password.text);
+     if(!mounted)return;
+     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+         builder: (context)=>HomeScreen()),
+         (value)=>false);
+    }catch(e){
+     print(e.toString());
+    } finally{
+      setState(() {
+        isloading=false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
               ),
               SizedBox(height: 25,),
+              isloading?Center(child: CircularProgressIndicator(),):
               ElevatedButton(onPressed: (){
                 if(formkey.currentState!.validate())
                 {
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:
-                  (context)=>HomeScreen()
-                  ), (value) => false);
+                  login();
+                  // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:
+                  // (context)=>HomeScreen()
+                  // ), (value) => false);
                 }
               },
                 child: Text('Login')),

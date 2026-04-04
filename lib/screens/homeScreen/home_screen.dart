@@ -1,4 +1,6 @@
+import 'package:chatt_app/screens/authScreens/login_screen.dart';
 import 'package:chatt_app/screens/chatts/chatt_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,12 +11,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  FirebaseAuth auth=FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
         centerTitle: true,
+        actions: [
+          PopupMenuButton(itemBuilder: (context)=>[
+            PopupMenuItem(
+                onTap: () async{
+                  await auth.signOut();
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (context)=>LoginScreen()
+                  ), (value)=>false);
+                },
+                child: Text('logout'))
+          ])
+        ],
       ),
       body: ListView(
         children: [

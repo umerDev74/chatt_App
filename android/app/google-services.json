@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "472655185580",
+    "project_id": "todo-app-40ea0",
+    "storage_bucket": "todo-app-40ea0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472655185580:android:0b454f8c6f4e25fd0d8109",
+        "android_client_info": {
+          "package_name": "com.example.chatt_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl0NzctqfQvry-dpXte-0JDES-ge-ZHCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472655185580:android:4076a2794ba9b43b0d8109",
+        "android_client_info": {
+          "package_name": "com.example.learning_flutter_state_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl0NzctqfQvry-dpXte-0JDES-ge-ZHCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472655185580:android:81ce1295a673c0870d8109",
+        "android_client_info": {
+          "package_name": "com.example.todo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl0NzctqfQvry-dpXte-0JDES-ge-ZHCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
