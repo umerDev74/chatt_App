@@ -1,4 +1,6 @@
 import 'package:chatt_app/screens/authScreens/login_screen.dart';
+import 'package:chatt_app/screens/homeScreen/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,6 +11,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  FirebaseAuth auth=FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -23,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return;
     }
     Navigator.pushReplacement(context, MaterialPageRoute(builder:
-    (context)=>LoginScreen()));
+    (context)=> auth.currentUser == null? LoginScreen():HomeScreen()));
   }
 
   @override
